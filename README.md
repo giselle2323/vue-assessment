@@ -23,9 +23,10 @@ yarn
 yarn watch
 ```
 
-----
-Set your database configuration in the `.env` file.
-----
+-----
+Set your database configuration in the `.env` file and serve the app using the command below
+
+-----
 
 
 ```
