@@ -1,7 +1,7 @@
 ## Frontend Vuejs Laravel Assessment 
 
 
-#### Setup
+### Setup
 
 ```
 composer i
@@ -23,9 +23,18 @@ yarn
 yarn watch
 ```
 
+----
+Set your database configuration in the `.env` file.
+----
 
-#### API Documentations
-##### List of endpoints
+
+```
+php artisan serve
+```
+
+
+### API Documentations
+#### List of endpoints
 - **GET** : .../employee/list *(Get list of employees)*
 - **GET** : .../employee/{id} *(Get one employees by passing the id)*
 - **POST** : .../employee/create *(Create new employee record)*
