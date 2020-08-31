@@ -13,19 +13,21 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
 
-        return response()->json([
-            'message' => 'Data retrieved',
-            'data' => $employees
-        ], 200);
+        return response()
+            ->json([
+                'message' => 'Data retrieved',
+                'data' => $employees
+            ], 200);
     }
 
     public function delete($id)
     {
         Employee::where('id', $id)->delete();
 
-        return response()->json([
-            'message' => 'Employee data successfully deleted',
-        ], 200);
+        return response()
+            ->json([
+                'message' => 'Employee data successfully deleted',
+            ], 200);
     }
 
     public function create(Request $request)

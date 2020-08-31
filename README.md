@@ -2,6 +2,7 @@
 
 
 #### Setup
+
 ```shell script
 composer i
 ```
@@ -24,6 +25,15 @@ yarn watch
 
 
 #### API Documentations
+##### List of endpoints
+- **GET** : .../employee/list *(Get list of employees)*
+- **GET** : .../employee/{id} *(Get one employees by passing the id)*
+- **POST** : .../employee/create *(Create new employee record)*
+- **PUT/PATCH** : .../employee/{id} *(update single employee record)*
+- **DELETE** : .../employee/{id} *(delete single employee record)*
+
+requests payload schema sample for POST, PUT/PATCH
+
 ```json
 {
     "name": "Michael Akanji",
