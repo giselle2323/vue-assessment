@@ -11,7 +11,7 @@ class EmployeeController extends Controller
 {
     public function list(Request $request)
     {
-        $employees = DB::select("SELECT * FROM employees");
+        $employees = Employee::all();
 
         return response()->json([
             'message' => 'Data retrieved',
@@ -31,6 +31,7 @@ class EmployeeController extends Controller
     public function create(Request $request)
     {
         $data = $request->all();
+
         $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'salary' => ['required'],
@@ -67,13 +68,16 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $employee = Employee::where('id', $id)->first();
+
         if (!$employee) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Employee not found'
             ], 400);
         }
+
         $data = $request->all();
+
         $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'salary' => ['required'],
@@ -91,6 +95,7 @@ class EmployeeController extends Controller
         }
 
         $lastSalaryChange = $data['salary'] - $employee->current_salary;
+
         $insertData = array(
             'name' => $data['name'],
             'current_salary' => $data['salary'],
@@ -100,7 +105,9 @@ class EmployeeController extends Controller
             'job_title' => $data['job_title'],
             'job_status' => $data['job_status'],
         );
-        DB::table('employees')->where('id', $id)->update($insertData);
+
+        // update employee info
+        $employee->update($insertData);
 
         return response()->json([
             'status' => 'success',
@@ -111,15 +118,18 @@ class EmployeeController extends Controller
     public function get($id)
     {
         $employee = Employee::where('id', $id)->first();
+
         if ($employee) {
-            return response()->json([
-                'message' => 'details retrieved',
-                'employee' => $employee
-            ], 200);
+            return response()
+                ->json([
+                    'message' => 'details retrieved',
+                    'employee' => $employee
+                ], 200);
         } else {
-            return response()->json([
-                'message' => 'details not found',
-            ], 400);
+            return response()
+                ->json([
+                    'message' => 'details not found',
+                ], 400);
         }
     }
 }
