@@ -57,7 +57,7 @@ class EmployeeController extends Controller
             'job_status' => $data['job_status'],
         );
 
-        DB::table('employees')->insert($insertData);
+        (Employee::create($insertData))->save();
 
         return response()->json([
             'status' => 'success',
