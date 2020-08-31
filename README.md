@@ -3,23 +3,23 @@
 
 #### Setup
 
-```shell script
+```
 composer i
 ```
 
-```shell script
+```
 cp .env.example .env
 ```
 
-```shell script
+```
 php artisan key:generate
 ```
 
-```shell script
+```
 yarn
 ```
 
-```shell script
+```
 yarn watch
 ```
 
