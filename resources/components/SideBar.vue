@@ -14,6 +14,12 @@
         <li><a href=""><img src="../assets/images/arena.png" alt="arena-sport" srcset=""><span>FireStar</span></a></li>
         <li><a href=""><img src="../assets/images/arena.png" alt="arena-sport" srcset=""><span>Zeta bank</span></a></li>
      </section>
+     <section class="projects__section">
+       <header class="projects__section__header">STATUS</header>
+       <li><a href=""><img src="../assets/images/arena.png" alt="arena-sport" srcset=""><span>Arena Sports 🏀</span></a></li>
+       <li><a href=""><img src="../assets/images/arena.png" alt="arena-sport" srcset=""><span>DSV </span></a></li>
+     </section>
+     <button class="side-bar-project__btn">add project</button>
     </section>
   </section>
 </template>
