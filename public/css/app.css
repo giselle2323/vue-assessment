@@ -1,8 +1,7 @@
-//
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', 'sans-serif';
+  font-family: "Nunito", "sans-serif";
 }
 
 #app {
@@ -43,11 +42,10 @@ body {
   display: flex;
   align-content: center;
   align-content: center;
-  padding: 10px 10px
-  //align-items: center;
+  padding: 10px 10px;
 }
 
-.nav-menu__section a{ 
+.nav-menu__section a {
   color: #C1B7C2;
   text-decoration: none;
   font-size: 18px;
@@ -67,7 +65,8 @@ body {
   padding: 10px;
 }
 
-.notification__btn, .message__btn {
+.notification__btn,
+.message__btn {
   border: none;
   outline: none;
   background-color: transparent;
@@ -83,16 +82,12 @@ body {
 .nav-image-container img {
   max-width: 100%;
 }
-//
+
 .inner-container {
   background-color: #F0F0F3;
   display: flex;
   flex-direction: column;
-
 }
-
-
-//side-bar
 
 .side-bar-container {
   width: 30%;
@@ -112,6 +107,8 @@ body {
 .side-bar-links {
   background-color: #fff;
   padding: 20px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   border: none;
   border-radius: 10px;
@@ -128,7 +125,6 @@ body {
 .side-bar-links-heading {
   padding: 10px;
 }
-//employee-container 
 
 .employee__section {
   display: inherit;
@@ -142,12 +138,6 @@ body {
   align-items: center;
 }
 
-// .employee-container__header {
-  
-// }
-
-//project-section
-
 .projects__section li {
   list-style: none;
 }
@@ -159,8 +149,10 @@ body {
 .projects__section a {
   text-decoration: none;
 }
+
 .projects__section img {
   border: 1px solid brown;
   padding: 10px;
   border-radius: 50%;
 }
+
