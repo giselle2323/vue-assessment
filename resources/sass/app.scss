@@ -407,7 +407,7 @@ table thead tr:hover {
 }
 
 td {
-  height: 70px;
+  //height: 70px;
   vertical-align: middle;
   font-weight: 500;
 }
@@ -435,13 +435,16 @@ td span p {
   width: 70px;
 }
 
+.header-row {
+  text-align: center;
+}
 .checkbox-row {
   text-align: center;
   width: 70px;
 }
 .gain {
   width: fit-content;
-  padding: 1px 20px;
+  padding: 1px 12px;
   color: #fff;
   background-color: #21bd89;
   border-radius: 17px;
@@ -450,7 +453,7 @@ td span p {
 
 .loss {
   width: fit-content;
-  padding: 1px 20px;
+  padding: 1px 12px;
   color: #fff;
   background-color: #eb5656;
   border-radius: 17px;

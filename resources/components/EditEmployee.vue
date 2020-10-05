@@ -12,12 +12,14 @@ export default {
       image: null,
       job_title: null,
       job_status: null,
-      job_type: null
+      job_type: null,
     };
   },
   methods: {
     editEmployee(id) {
-      let editEmployee = confirm("Performing this action would change employee's data");
+      let editEmployee = confirm(
+        "Performing this action would change the employee's data"
+      );
       if (editEmployee == true) {
         this.axios
           .put("http://localhost:8000/employee/" + id, this.employee)
@@ -38,25 +40,24 @@ export default {
         this.errors.push("Name required.");
       }
       if (!this.salary) {
-        this.errors.push('Email required.');
-      } 
+        this.errors.push("Email required.");
+      }
       if (!this.image) {
-        this.errors.push('Image link required.');
+        this.errors.push("Image link required.");
       }
       if (!this.job_status) {
-        this.errors.push('Job status required.');
-      } 
+        this.errors.push("Job status required.");
+      }
       if (!this.job_type) {
-        this.errors.push('Job type required.');
-      } 
+        this.errors.push("Job type required.");
+      }
       if (!this.job_title) {
-        this.errors.push('Job Title required.');
-      } 
+        this.errors.push("Job Title required.");
+      }
       if (!this.errors.length) {
         return true;
-      }
-      else {
-        this.editEmployee(this.employee.id)
+      } else {
+        this.editEmployee(this.employee.id);
       }
     },
   },

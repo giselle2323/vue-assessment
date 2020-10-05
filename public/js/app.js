@@ -2032,7 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
     editEmployee: function editEmployee(id) {
       var _this = this;
 
-      var editEmployee = confirm("Performing this action would change employee's data");
+      var editEmployee = confirm("Performing this action would change the employee's data");
 
       if (editEmployee == true) {
         this.axios.put("http://localhost:8000/employee/" + id, this.employee).then(function () {
@@ -2058,23 +2058,23 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (!this.salary) {
-        this.errors.push('Email required.');
+        this.errors.push("Email required.");
       }
 
       if (!this.image) {
-        this.errors.push('Image link required.');
+        this.errors.push("Image link required.");
       }
 
       if (!this.job_status) {
-        this.errors.push('Job status required.');
+        this.errors.push("Job status required.");
       }
 
       if (!this.job_type) {
-        this.errors.push('Job type required.');
+        this.errors.push("Job type required.");
       }
 
       if (!this.job_title) {
-        this.errors.push('Job Title required.');
+        this.errors.push("Job Title required.");
       }
 
       if (!this.errors.length) {
@@ -2186,6 +2186,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var defaultImage = __webpack_require__(/*! ../assets/images/profile.jpg */ "./resources/assets/images/profile.jpg");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2193,7 +2219,7 @@ var defaultImage = __webpack_require__(/*! ../assets/images/profile.jpg */ "./re
   data: function data() {
     var sortOrders = {};
     var columns = [{
-      label: '',
+      label: "",
       name: "image"
     }, {
       label: "Employee",
@@ -20459,7 +20485,7 @@ var render = function() {
         { staticClass: "employee_container__btn primary__btn" },
         [
           _c("router-link", { attrs: { to: "/new-employee" } }, [
-            _vm._v("Add Employee ")
+            _vm._v(" Add Employee ")
           ])
         ],
         1
@@ -20470,16 +20496,14 @@ var render = function() {
       ? _c("section", { staticClass: "employee-container__table" }, [
           _c("h2", { staticClass: "no-data-text" }, [
             _vm._v(
-              "Sorry , no data available at the moment, create a new employee to manage you data"
+              "\n      Sorry , no data available at the moment, create a new employee to manage\n      your data.\n    "
             )
           ])
         ])
       : _vm._e(),
     _vm._v(" "),
     _vm.loading
-      ? _c("section", { staticClass: "loading" }, [
-          _vm._v("\n    Loading...\n  ")
-        ])
+      ? _c("section", { staticClass: "loading" }, [_vm._v("Loading...")])
       : _c("section", { staticClass: "employee-container__table" }, [
           _c("table", { staticClass: "table table-responsive" }, [
             _c("thead", [
@@ -20487,9 +20511,7 @@ var render = function() {
                 "tr",
                 { staticClass: "column__header" },
                 [
-                  _c("input", {
-                    attrs: { type: "checkbox", name: "checkbox" }
-                  }),
+                  _vm._m(0),
                   _vm._v(" "),
                   _vm._l(_vm.columns, function(column) {
                     return _c(
@@ -20510,9 +20532,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n             \n              " +
+                          "\n            " +
                             _vm._s(column.label) +
-                            "\n            "
+                            "\n          "
                         )
                       ]
                     )
@@ -20557,30 +20579,36 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("p", { staticClass: "light-column" }, [
-                      _vm._v(_vm._s(employee.job_title) + " ")
+                      _vm._v(_vm._s(employee.job_title))
                     ])
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "salary-row" }, [
                     _c("p", { staticClass: "bold-column" }, [
                       _vm._v(
-                        " " +
+                        "\n              " +
                           _vm._s(employee.salary) +
-                          " NOK \n                "
+                          " NOK\n              "
                       ),
                       employee.last_salary_change >= 0
                         ? _c("span", { staticClass: "gain" }, [
-                            _vm._v(" + " + _vm._s(employee.last_salary_change))
+                            _vm._v(
+                              "\n                + " +
+                                _vm._s(employee.last_salary_change)
+                            )
                           ])
                         : _c("span", { staticClass: "loss" }, [
-                            _vm._v(" - " + _vm._s(employee.last_salary_change))
+                            _vm._v(
+                              "\n                - " +
+                                _vm._s(employee.last_salary_change)
+                            )
                           ])
                     ]),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
                     _c("p", { staticClass: "light-column" }, [
-                      _vm._v(_vm._s(employee.job_type.toLowerCase()) + " ")
+                      _vm._v(_vm._s(employee.job_type.toLowerCase()))
                     ])
                   ]),
                   _vm._v(" "),
@@ -20590,7 +20618,7 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("p", { staticClass: "light-column" }, [
-                      _vm._v(" 2 months ")
+                      _vm._v("2 months")
                     ])
                   ]),
                   _vm._v(" "),
@@ -20656,7 +20684,16 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "header-row" }, [
+      _c("input", { attrs: { type: "checkbox", name: "checkbox" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
