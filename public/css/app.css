@@ -61,7 +61,7 @@ body {
 }
 
 .nav-menu__section a {
-  color: #C1B7C2;
+  color: #c1b7c2;
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -113,7 +113,7 @@ body {
 }
 
 .inner-container {
-  background-color: #F0F0F3;
+  background-color: #f0f0f3;
   display: flex;
   flex-direction: column;
   height: -webkit-fit-content;
@@ -171,7 +171,7 @@ body {
   outline: none;
   border: none;
   border-radius: 10px;
-  background-color: #3B22BF;
+  background-color: #3b22bf;
   color: #fff;
   padding: 10px 20px;
   position: absolute;
@@ -401,7 +401,7 @@ input[type=checkbox] {
 
 .light-column {
   font-weight: lighter;
-  color: #C1B7C2;
+  color: #c1b7c2;
 }
 
 table th {
