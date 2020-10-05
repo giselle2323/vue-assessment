@@ -341,7 +341,7 @@ table {
 table tr {
   background-color: #fff;
   border: none;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 table tr tr:first-child td:first-child {
@@ -404,17 +404,17 @@ input[type=checkbox] {
   color: #C1B7C2;
 }
 
-.table th {
+table th {
   text-align: left;
   padding: 10px 0px;
   cursor: pointer;
 }
 
-.table {
-  width: 100%;
+table thead tr {
+  box-shadow: none;
 }
 
-.table thead tr {
+table thead tr:hover {
   box-shadow: none;
 }
 
@@ -476,19 +476,23 @@ td span p {
   border-radius: 17px;
 }
 
-.sorting {
+.table {
+  width: 100%;
+}
+
+.table .sorting {
   background-image: url("/images/sort_both.png");
   background-repeat: no-repeat;
   background-position: center right;
 }
 
-.sorting_asc {
+.table .sorting_asc {
   background-image: url("/images/sort_asc.png");
   background-repeat: no-repeat;
   background-position: center right;
 }
 
-.sorting_desc {
+.table .sorting_desc {
   background-image: url("/images/sort_desc.png");
   background-repeat: no-repeat;
   background-position: center right;
@@ -510,11 +514,15 @@ td span p {
 
 .form-container {
   width: 71%;
-  padding: 2%;
+  padding: 0 2%;
 }
 
 .form__header {
   font-size: 30px;
+  padding: 10px;
+}
+
+.form__header h2 {
   padding: 10px;
 }
 
@@ -525,6 +533,14 @@ td span p {
 }
 
 form input[type=text] {
+  padding: 1% 0;
+  margin: 1% 0;
+  width: 96%;
+  border: 1px solid beige;
+  border-radius: 10px;
+}
+
+form input[type=number] {
   padding: 1% 0;
   margin: 1% 0;
   width: 96%;
