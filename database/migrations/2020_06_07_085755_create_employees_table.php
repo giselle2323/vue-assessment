@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('image')->nullable();
             $table->string('job_title');
             $table->string('job_type');
+            $table->string('salary');
             $table->decimal('current_salary', 18, 2);
             $table->string('last_salary_change')->default(0);
             $table->string('job_status');
