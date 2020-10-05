@@ -44,8 +44,8 @@
                   <span class="loss" v-else> - {{ employee.last_salary_change}}</span>
                 </p>
                  <br>  
-                 <p class="light-column">{{ employee.job_type}} </p> </td>
-              <td><p>{{ employee.job_status }}</p> <br> <p class="light-column"> 2 months </p> </td>
+                 <p class="light-column">{{ employee.job_type.toLowerCase() }} </p> </td>
+              <td><p>{{ employee.job_status}}</p> <br> <p class="light-column"> 2 months </p> </td>
               <td>
                 <a
                   href="#"

@@ -20580,7 +20580,7 @@ var render = function() {
                     _c("br"),
                     _vm._v(" "),
                     _c("p", { staticClass: "light-column" }, [
-                      _vm._v(_vm._s(employee.job_type) + " ")
+                      _vm._v(_vm._s(employee.job_type.toLowerCase()) + " ")
                     ])
                   ]),
                   _vm._v(" "),
