@@ -1,6 +1,5 @@
 ## Frontend Vuejs Laravel Assessment 
 
-### Note: The default branch for this repo is "aminat-test-assessment"
 
 ### Setup
 
