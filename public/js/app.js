@@ -1923,43 +1923,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    checkForm: function checkForm(e) {
-      this.errors = [];
-
-      if (!this.name) {
-        this.errors.push("Name required.");
-      }
-
-      if (!this.salary) {
-        this.errors.push('Email required.');
-      }
-
-      if (!this.image) {
-        this.errors.push('Image link required.');
-      }
-
-      if (!this.job_status) {
-        this.errors.push('Job status required.');
-      }
-
-      if (!this.job_type) {
-        this.errors.push('Job type required.');
-      }
-
-      if (!this.job_title) {
-        this.errors.push('Job Title required.');
-      }
-
-      if (!this.errors.length) {
-        return true;
-      } else {
-        this.addEmployee();
-      }
-    },
     addEmployee: function addEmployee() {
       var _this = this;
 
-      this.axios.post("http://localhost:8000/employee/create", this.employee).then(function () {
+      this.axios.post("/employee/create", this.employee).then(function () {
         return alert("Employee added sucessfully"), _this.$router.push({
           name: "home"
         });
@@ -1968,6 +1935,39 @@ __webpack_require__.r(__webpack_exports__);
       })["finally"](function () {
         return _this.loading = false;
       });
+    },
+    checkForm: function checkForm(e) {
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push("Name required.");
+      }
+
+      if (!this.salary) {
+        this.errors.push("Email required.");
+      }
+
+      if (!this.image) {
+        this.errors.push("Image link required.");
+      }
+
+      if (!this.job_status) {
+        this.errors.push("Job status required.");
+      }
+
+      if (!this.job_type) {
+        this.errors.push("Job type required.");
+      }
+
+      if (!this.job_title) {
+        this.errors.push("Job Title required.");
+      }
+
+      if (!this.errors.length) {
+        return false;
+      } else {
+        this.addEmployee();
+      }
     }
   }
 });
@@ -2035,7 +2035,7 @@ __webpack_require__.r(__webpack_exports__);
       var editEmployee = confirm("Performing this action would change the employee's data");
 
       if (editEmployee == true) {
-        this.axios.put("http://localhost:8000/employee/" + id, this.employee).then(function () {
+        this.axios.put("/employee/" + id, this.employee).then(function () {
           alert("Employee was updated succesfully"), _this.$router.push({
             name: "home"
           });
@@ -2087,7 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    this.axios.get("http://localhost:8000/employee/" + this.$route.params.id).then(function (response) {
+    this.axios.get("/employee/" + this.$route.params.id).then(function (response) {
       _this2.employee = response.data.employee;
       console.log(_this2.employee);
     })["catch"](function (error) {
@@ -2109,6 +2109,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2263,7 +2265,7 @@ var defaultImage = __webpack_require__(/*! ../assets/images/profile.jpg */ "./re
       var deleteData = confirm("Are you sure you want to delete this employee?");
 
       if (deleteData == true) {
-        axios["delete"]("http://localhost:8000/employee/" + id).then(function () {
+        axios["delete"]("/employee/" + id).then(function () {
           alert("Success! employee has been deleted"), _this.$router.go();
         })["catch"](function (error) {
           console.log(error);
@@ -2276,7 +2278,7 @@ var defaultImage = __webpack_require__(/*! ../assets/images/profile.jpg */ "./re
   mounted: function mounted() {
     var _this2 = this;
 
-    axios.get("http://localhost:8000/employee/list").then(function (response) {
+    axios.get("/employee/list").then(function (response) {
       _this2.employees = response.data.data;
     })["catch"](function (error) {
       console.log(error);
@@ -19993,7 +19995,7 @@ var render = function() {
     _c(
       "form",
       {
-        attrs: { novalidate: "true", method: "" },
+        attrs: { novalidate: "true", method: "post" },
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -20492,7 +20494,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    !_vm.employees.length
+    !_vm.employees
       ? _c("section", { staticClass: "employee-container__table" }, [
           _c("h2", { staticClass: "no-data-text" }, [
             _vm._v(

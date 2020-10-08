@@ -14,6 +14,18 @@ export default {
     };
   },
   methods: {
+    addEmployee() {
+      this.axios
+        .post("/employee/create", this.employee)
+        .then(
+          () => (
+            alert("Employee added sucessfully"),
+            this.$router.push({ name: "home" })
+          )
+        )
+        .catch((error) => console.log(error))
+        .finally(() => (this.loading = false));
+    },
     checkForm: function (e) {
       this.errors = [];
 
@@ -36,23 +48,11 @@ export default {
         this.errors.push("Job Title required.");
       }
       if (!this.errors.length) {
-        return true;
+        return false;
       } else {
         this.addEmployee();
       }
-    },
-    addEmployee() {
-      this.axios
-        .post("{{env(APP_URL)}}/employee/create", this.employee)
-        .then(
-          () => (
-            alert("Employee added sucessfully"),
-            this.$router.push({ name: "home" })
-          )
-        )
-        .catch((error) => console.log(error))
-        .finally(() => (this.loading = false));
-    },
+    }
   },
 };
 </script>
@@ -64,7 +64,7 @@ export default {
     <div class="form__header">
       <h2>Kindly Provide the following details</h2>
     </div>
-    <form @submit.prevent="checkForm" novalidate='true' method="">
+    <form @submit.prevent="checkForm" novalidate='true' method="post">
        <p v-if="errors.length">
         <b>Please correct the following error(s):</b>
         <ul>

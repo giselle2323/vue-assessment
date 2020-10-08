@@ -5,7 +5,7 @@
         <router-link to="/new-employee"> Add Employee </router-link>
       </div>
     </header>
-    <section v-if="!employees.length" class="employee-container__table">
+    <section v-if="!employees" class="employee-container__table">
       <h2 class="no-data-text">
         Sorry , no data available at the moment, create a new employee to manage
         your data.
@@ -16,7 +16,9 @@
       <table class="table table-responsive">
         <thead>
           <tr class="column__header">
-            <td class="header-row"><input type="checkbox" name="checkbox" /></td>
+            <td class="header-row">
+              <input type="checkbox" name="checkbox" />
+            </td>
             <th
               v-for="column in columns"
               :key="column.name"
@@ -143,7 +145,7 @@ export default {
       );
       if (deleteData == true) {
         axios
-          .delete("{env(APP_URL)}}/employee/" + id)
+          .delete("/employee/" + id)
           .then(() => {
             alert("Success! employee has been deleted"), this.$router.go();
           })
@@ -158,7 +160,7 @@ export default {
 
   mounted() {
     axios
-      .get("http://localhost:8000/employee/list")
+      .get("/employee/list")
       .then((response) => {
         this.employees = response.data.data;
       })

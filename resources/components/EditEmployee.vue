@@ -22,7 +22,7 @@ export default {
       );
       if (editEmployee == true) {
         this.axios
-          .put("{env(APP_URL)}}/employee/" + id, this.employee)
+          .put("/employee/" + id, this.employee)
           .then(() => {
             alert("Employee was updated succesfully"),
               this.$router.push({ name: "home" });
@@ -63,7 +63,7 @@ export default {
   },
   mounted() {
     this.axios
-      .get("http://localhost:8000/employee/" + this.$route.params.id)
+      .get("/employee/" + this.$route.params.id)
       .then((response) => {
         this.employee = response.data.employee;
         console.log(this.employee);
