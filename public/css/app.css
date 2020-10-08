@@ -139,7 +139,7 @@ body {
 .side-bar-links {
   width: 83%;
   background-color: #fff;
-  padding: 20px;
+  padding: 10px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -150,13 +150,14 @@ body {
   position: relative;
   z-index: 9;
   margin-top: 7%;
+  padding-bottom: 50px;
 }
 
 .side-bar-links__header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .side-bar-links-heading {
@@ -165,6 +166,8 @@ body {
 
 .button-container {
   align-self: center;
+  position: absolute;
+  bottom: -2px;
 }
 
 .side-bar-project__btn {
@@ -174,7 +177,6 @@ body {
   background-color: #3b22bf;
   color: #fff;
   padding: 10px 20px;
-  position: absolute;
   left: 48px;
   bottom: -27px;
   z-index: 9999;
@@ -298,6 +300,7 @@ body {
 
 .projects__section__header {
   padding: 10px;
+  color: #d4cdd5;
 }
 
 .projects__section li:hover {
@@ -331,14 +334,35 @@ body {
   padding: 20px;
 }
 
-table {
+.table {
+  width: 100%;
+  margin: 11px 0 0;
   border-collapse: separate;
-  border-spacing: 0 20px;
+  border-spacing: 0 25px;
+}
+
+.table .sorting {
+  background-image: url("/images/sort_both.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.table .sorting_asc {
+  background-image: url("/images/sort_asc.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.table .sorting_desc {
+  background-image: url("/images/sort_desc.png");
+  background-repeat: no-repeat;
+  background-position: center right;
 }
 
 table tr {
   background-color: #fff;
   border: none;
+  height: 84px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -475,29 +499,6 @@ td span p {
   color: #fff;
   background-color: #eb5656;
   border-radius: 17px;
-}
-
-.table {
-  width: 100%;
-  margin: 18px 0 0 0;
-}
-
-.table .sorting {
-  background-image: url("/images/sort_both.png");
-  background-repeat: no-repeat;
-  background-position: center right;
-}
-
-.table .sorting_asc {
-  background-image: url("/images/sort_asc.png");
-  background-repeat: no-repeat;
-  background-position: center right;
-}
-
-.table .sorting_desc {
-  background-image: url("/images/sort_desc.png");
-  background-repeat: no-repeat;
-  background-position: center right;
 }
 
 .no-data-text {
