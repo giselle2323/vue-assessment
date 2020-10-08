@@ -143,7 +143,7 @@ export default {
       );
       if (deleteData == true) {
         axios
-          .delete("http://localhost:8000/employee/" + id)
+          .delete("{env(APP_URL)}}/employee/" + id)
           .then(() => {
             alert("Success! employee has been deleted"), this.$router.go();
           })

@@ -10,7 +10,7 @@ export default {
       image: null,
       job_title: null,
       job_status: null,
-      job_type: null
+      job_type: null,
     };
   },
   methods: {
@@ -21,30 +21,29 @@ export default {
         this.errors.push("Name required.");
       }
       if (!this.salary) {
-        this.errors.push('Email required.');
-      } 
+        this.errors.push("Email required.");
+      }
       if (!this.image) {
-        this.errors.push('Image link required.');
+        this.errors.push("Image link required.");
       }
       if (!this.job_status) {
-        this.errors.push('Job status required.');
-      } 
+        this.errors.push("Job status required.");
+      }
       if (!this.job_type) {
-        this.errors.push('Job type required.');
-      } 
+        this.errors.push("Job type required.");
+      }
       if (!this.job_title) {
-        this.errors.push('Job Title required.');
-      } 
+        this.errors.push("Job Title required.");
+      }
       if (!this.errors.length) {
         return true;
-      }
-      else {
-        this.addEmployee()
+      } else {
+        this.addEmployee();
       }
     },
     addEmployee() {
       this.axios
-        .post("http://localhost:8000/employee/create", this.employee)
+        .post("{{env(APP_URL)}}/employee/create", this.employee)
         .then(
           () => (
             alert("Employee added sucessfully"),

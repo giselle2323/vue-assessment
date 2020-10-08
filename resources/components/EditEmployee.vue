@@ -22,7 +22,7 @@ export default {
       );
       if (editEmployee == true) {
         this.axios
-          .put("http://localhost:8000/employee/" + id, this.employee)
+          .put("{env(APP_URL)}}/employee/" + id, this.employee)
           .then(() => {
             alert("Employee was updated succesfully"),
               this.$router.push({ name: "home" });
