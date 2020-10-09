@@ -286,7 +286,7 @@ body {
 
 .actions a {
   padding-right: 10px;
-  border-right: 4px solid #c1b7c2;
+  border-right: 1px solid #c1b7c2;
 }
 
 .actions span {
@@ -533,14 +533,22 @@ td span p {
 }
 
 .form-container form {
-  margin: 32px 0 0 0;
+  margin: 35px 0 0 0;
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
 }
 
+.form-group {
+  padding: 10px 0 0 0;
+}
+
+.form-group label {
+  color: #918d92;
+}
+
 form input[type=text] {
-  padding: 1% 0;
+  padding: 1% 1%;
   margin: 1% 0;
   width: 96%;
   border: 1px solid beige;
@@ -548,7 +556,7 @@ form input[type=text] {
 }
 
 form input[type=number] {
-  padding: 1% 0;
+  padding: 1% 1%;
   margin: 1% 0;
   width: 96%;
   border: 1px solid beige;
