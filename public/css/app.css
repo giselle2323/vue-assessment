@@ -166,8 +166,8 @@ body {
 
 .button-container {
   align-self: center;
-  position: absolute;
-  bottom: -2px;
+  z-index: 9999;
+  margin-top: -17%;
 }
 
 .side-bar-project__btn {
@@ -433,6 +433,7 @@ table th {
 }
 
 table thead tr {
+  height: unset;
   box-shadow: none;
 }
 

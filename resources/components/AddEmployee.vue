@@ -27,8 +27,7 @@ export default {
         .finally(() => (this.loading = false));
     },
     checkForm: function (e) {
-      this.errors = [];
-
+      
       if (!this.name) {
         this.errors.push("Name required.");
       }
@@ -48,10 +47,11 @@ export default {
         this.errors.push("Job Title required.");
       }
       if (!this.errors.length) {
-        return false;
-      } else {
-        this.addEmployee();
-      }
+        return true;
+      } 
+      e.preventDefault();
+      this.addEmployee();
+  
     }
   },
 };
@@ -64,13 +64,13 @@ export default {
     <div class="form__header">
       <h2>Kindly Provide the following details</h2>
     </div>
-    <form @submit.prevent="checkForm" novalidate='true' method="post">
-       <p v-if="errors.length">
-        <b>Please correct the following error(s):</b>
-        <ul>
-          <li v-for="error in errors" :key="error.message">{{ error }}</li>
-        </ul>
-      </p>
+    <form @submit="checkForm" method="post">
+        <p v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+          <ul>
+            <li v-for="error in errors" :key="error">{{ error }}</li>
+          </ul>
+        </p>
       <div class="form-group">
         <label>Name</label>
         <br />
@@ -79,27 +79,27 @@ export default {
       <div class="form-group">
         <label>Salary</label>
         <br />
-        <input type="number" class="form-control" v-model="employee.salary" name="salary"/>
+        <input type="number" class="form-control" id="name" v-model="employee.salary" name="salary"/>
       </div>
       <div class="form-group">
         <label>Image Link</label>
         <br />
-        <input type="text" class="form-control" v-model="employee.image" name='image'/>
+        <input type="text" class="form-control" id="image" v-model="employee.image" name='image'/>
       </div>
       <div class="form-group">
         <label>Job Title</label>
         <br />
-        <input type="text" class="form-control" v-model="employee.job_title"  name="job_title"/>
+        <input type="text" class="form-control" id="job_title" v-model="employee.job_title"  name="job_title"/>
       </div>
       <div class="form-group">
         <label>Job Type</label>
         <br />
-        <input type="text" class="form-control" v-model="employee.job_type" name="job_type" />
+        <input type="text" class="form-control" id="job_type" v-model="employee.job_type" name="job_type" />
       </div>
       <div class="form-group">
         <label>Job Status</label>
         <br />
-        <input type="text" class="form-control" v-model="employee.job_status" name="job_status" />
+        <input type="text" class="form-control" id="job_status" v-model="employee.job_status" name="job_status" />
       </div>
 
       <input type="submit" value="Submit" />

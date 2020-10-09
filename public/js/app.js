@@ -1937,8 +1937,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     checkForm: function checkForm(e) {
-      this.errors = [];
-
       if (!this.name) {
         this.errors.push("Name required.");
       }
@@ -1964,10 +1962,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (!this.errors.length) {
-        return false;
-      } else {
-        this.addEmployee();
+        return true;
       }
+
+      e.preventDefault();
+      this.addEmployee();
     }
   }
 });
@@ -19992,205 +19991,191 @@ var render = function() {
   return _c("div", { staticClass: "form-container" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { novalidate: "true", method: "post" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.checkForm($event)
+    _c("form", { attrs: { method: "post" }, on: { submit: _vm.checkForm } }, [
+      _vm.errors.length
+        ? _c("p", [
+            _c("b", [_vm._v("Please correct the following error(s):")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.errors, function(error) {
+                return _c("li", { key: error }, [_vm._v(_vm._s(error))])
+              }),
+              0
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.employee.name,
+              expression: "employee.name"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", name: "name" },
+          domProps: { value: _vm.employee.name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.employee, "name", $event.target.value)
+            }
           }
-        }
-      },
-      [
-        _vm.errors.length
-          ? _c("p", [
-              _c("b", [_vm._v("Please correct the following error(s):")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.errors, function(error) {
-                  return _c("li", { key: error.message }, [
-                    _vm._v(_vm._s(error))
-                  ])
-                }),
-                0
-              )
-            ])
-          : _vm._e(),
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Salary")]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Name")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.employee.name,
-                expression: "employee.name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "name" },
-            domProps: { value: _vm.employee.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.employee, "name", $event.target.value)
-              }
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.employee.salary,
+              expression: "employee.salary"
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Salary")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.employee.salary,
-                expression: "employee.salary"
+          ],
+          staticClass: "form-control",
+          attrs: { type: "number", id: "name", name: "salary" },
+          domProps: { value: _vm.employee.salary },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
               }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "number", name: "salary" },
-            domProps: { value: _vm.employee.salary },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.employee, "salary", $event.target.value)
-              }
+              _vm.$set(_vm.employee, "salary", $event.target.value)
             }
-          })
-        ]),
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Image Link")]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Image Link")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.employee.image,
-                expression: "employee.image"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "image" },
-            domProps: { value: _vm.employee.image },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.employee, "image", $event.target.value)
-              }
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.employee.image,
+              expression: "employee.image"
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Job Title")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.employee.job_title,
-                expression: "employee.job_title"
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", id: "image", name: "image" },
+          domProps: { value: _vm.employee.image },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
               }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "job_title" },
-            domProps: { value: _vm.employee.job_title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.employee, "job_title", $event.target.value)
-              }
+              _vm.$set(_vm.employee, "image", $event.target.value)
             }
-          })
-        ]),
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Job Title")]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Job Type")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.employee.job_type,
-                expression: "employee.job_type"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "job_type" },
-            domProps: { value: _vm.employee.job_type },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.employee, "job_type", $event.target.value)
-              }
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.employee.job_title,
+              expression: "employee.job_title"
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Job Status")]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.employee.job_status,
-                expression: "employee.job_status"
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", id: "job_title", name: "job_title" },
+          domProps: { value: _vm.employee.job_title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
               }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "job_status" },
-            domProps: { value: _vm.employee.job_status },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.employee, "job_status", $event.target.value)
-              }
+              _vm.$set(_vm.employee, "job_title", $event.target.value)
             }
-          })
-        ]),
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Job Type")]),
         _vm._v(" "),
-        _c("input", { attrs: { type: "submit", value: "Submit" } })
-      ]
-    )
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.employee.job_type,
+              expression: "employee.job_type"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", id: "job_type", name: "job_type" },
+          domProps: { value: _vm.employee.job_type },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.employee, "job_type", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Job Status")]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.employee.job_status,
+              expression: "employee.job_status"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", id: "job_status", name: "job_status" },
+          domProps: { value: _vm.employee.job_status },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.employee, "job_status", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "submit", value: "Submit" } })
+    ])
   ])
 }
 var staticRenderFns = [
